@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="register">
+    <form th:action="@{/edit}" class="form-cont" method="post" th:object="${client}">
+        <h1>Ed<span>!</span>it</h1>
+        <input type="text" placeholder="username"  th:name="name">
+        <input type="password" placeholder="password" class="password" th:name="password">
+        <input type="password" placeholder="confirm password" class="password" th:name="confirmPassword">
+        <input type="submit" value="Register">
+    </form>
+</div><!--end of register div-->
+
+</body>
+</html>

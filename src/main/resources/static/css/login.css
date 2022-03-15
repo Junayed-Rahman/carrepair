@@ -1,0 +1,116 @@
+
+
+ form > *{
+    display: block;
+    margin:20px 100px; 
+}
+input[type="text"], input[type="password"], input[type="email"]{
+    width: 300px;
+    outline: 10px;
+    border: 2px solid;
+    border-radius: 30px;
+    text-align: center;
+    padding: 20px;
+    color:rgb(24, 53, 37);
+    transition: .25s;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus{
+    width:350px;
+}
+
+input[type="submit"]{
+    width: 150px;
+    outline: 10px;
+    border: 2pxpx solid;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px;
+    color:rgb(24, 37, 20);
+    transition: .25s;
+    cursor:pointer;
+}
+input[type="submit"]:hover{
+    background: #ffffff;
+}
+.wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.wrapper > * {
+    text-align: center;
+    
+}
+
+.main{
+    display: flex;
+    flex-flow: row wrap;
+    width:60vw;
+    min-height: 100vh;  
+    /* background:#34495e; */
+    
+}
+.login{
+    float: left;
+    width:50%;
+    min-height: 100vh;
+    /* background: url("https://unsplash.com/photos/nvFpb_MMRj8/download?force=true")  no-repeat ; */
+    background-size: cover;
+}
+.register{
+    float:right;
+    width:50%;
+    min-height: 100vh;    
+    /* background:  url("https://unsplash.com/photos/keqdnDale3M/download?force=true") no-repeat;     */
+    background-size: cover;
+    
+}
+
+.login, .register{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login form, .register form{
+    background-color: #a1a595;
+    width:500px;
+    padding: 40px;
+    min-height: 250px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    transition: .26s;
+} 
+.login form:hover, .register form:hover{
+    background-color: #6c726c86;
+    
+}
+form h1{
+    font-family: 'Montserrat;';
+    font-weight: 900;
+    color:rgb(0, 0, 0);
+}
+
+form h1 span{
+    color:rgb(249, 255, 254);
+}
+
+
+@media all and (max-width:800px){
+   .wrapper{
+       flex-flow:column ;
+   }
+   .main{
+       flex-flow: column;
+   }
+   .login, .register{
+       width: 100%;
+   }
+}

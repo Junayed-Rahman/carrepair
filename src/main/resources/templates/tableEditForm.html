@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="register">
+    <form th:action="@{/editsuccess}" class="form-cont" th:object="${client}" method="post">
+        <h1>Ed<span>!</span>it</h1>
+        <input type="text" th:value = "${client.id}"  th:name="id" readonly>
+        <input type="text" th:value = "${client.name}"  th:name="name">
+        <input type="date" th:value = "${client.appointmentDate}"  th:name="appointmentDate">
+
+
+
+        <select th:name="mechanic_id">
+            <option th:text="${mechanic.name} +' was previusly selected'" th:value="${mechanic.id}"></option>
+            <th:block th:each="mechanic : ${mechanicList}">
+                <option th:text="${mechanic.name} +' has '+${mechanic.clientsCount}+' free slots'"
+                        th:value="${mechanic.id}"></option>
+            </th:block>
+        </select>
+        <input type="submit">
+    </form>
+</div><!--end of register div-->
+
+</body>
+</html>

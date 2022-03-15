@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Car Mechanic</title>
+
+        <link rel="stylesheet"  th:href="@{./css/service.css}">
+        <link rel="stylesheet"  th:href="@{./css/index.css}">
+        <link rel="stylesheet"  th:href="@{./css/alert.css}">
+    </head>
+    <body>
+
+        <div class="container_full header_bg">
+            <div class="container">
+                <header>
+                    <div id="sticker" class="row">
+                        <div class="logo"><a href="#">
+                            <h2>AZURE<span>Auto Mechanic</span></h2>
+                        </a></div>
+                        <nav>
+                            <ul>
+                                <li><a th:href="@{/home}">Home</a></li>
+                                <li><a th:href="@{/about}">About US</a></li>
+                                <li><a th:href="@{/service}">Schedule Services</a></li>
+                                <li><a th:href="@{/contact}">Contact</a></li>
+                                <li th:if="${session.activeUser}"><p th:text="'Welcome '+${session.activeUser}"></p></li>
+                                <li th:unless="${session.activeUser}"><a th:href="@{/login}" ><button class="sign">LogIn/Register</button></a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <th:block th:if="${sameDate}">
+                    <div class="alert">
+                        <input type="checkbox" id="alert5"/>
+                        <label class="close" title="close" for="alert5">
+                            <i class="icon-remove"></i>
+                        </label>
+                        <p class="inner">
+                           You have an appointment on the same day!!
+                           Can't choose another appointment on the same day !!
+
+                        </p>
+                    </div>
+                    </th:block>
+
+
+                    <div class="container_full">
+                        <div class="container3">  
+                            <form id="contact" th:action="@{/success}" method="post" th:object="${client}">
+                              <h3>Schedule Auto Service</h3>
+                              <h4>To schedule an appointment give us a call at 1-800-123-4567 or fill out the form below with your information and requested services.</h4>
+
+                              <fieldset>
+                                  <p>Contact Info</p>
+                                <input placeholder="Your name" type="text" tabindex="1"  autofocus th:name="name">
+                                <input placeholder="Your Address" type="text" tabindex="2"  th:name="address">
+                                <input placeholder="Your Phone Number" type="text" tabindex="3" th:name="phone">
+                              </fieldset>
+                    
+                              <fieldset>
+                                  <p>Car Detail</p>
+                                <input placeholder="License Number" type="text" tabindex="4" th:name="car.licenseNumber" >
+                                <input placeholder="Registration Number" type="text" tabindex="5" th:name="car.registrationNumber">
+                                <input placeholder="Engine Number"   type="text" tabindex="6" th:name="car.carEngineNumber"  >
+                              </fieldset>
+
+                              <fieldset>
+                                <p>Appointment Date</p>
+                                <input placeholder="Appintment Date" type="date" tabindex="7" required th:name="appointmentDate">
+                                <p>Choose Mechanic</p>
+
+                                <select th:name="mechanic_id">
+                                    <th:block th:each="mechanic : ${mechanicList}">
+                                    <option th:text="${mechanic.name} +' has '+${mechanic.clientsCount}+' free slots'"
+                                            th:value="${mechanic.id}"></option>
+                                    </th:block>
+                                  </select>
+
+                              </fieldset>
+
+                              <fieldset>
+                                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                              </fieldset>
+                              
+                            </form>
+                          </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+                <div class="container_full footer_bg">
+                    <div class="container">
+                        <footer>
+                          <h1> – Thanks for visiting! – </h1>
+                            <p>### College Road, Malibagh, Dhaka-12**, Bangladesh </p>
+                            <p>Phone: +880-********** | Email: naoshin@gmail.com</p>
+                            <p>Copyright &copy; | 2022 AZURE Auto Mechanic</p>
+                        </footer>
+                    </div>
+                </div>
+    </body>
+</html>                    

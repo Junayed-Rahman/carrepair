@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Mechanic</title>
+        <link rel="stylesheet"  th:href="@{./css/index.css}" >
+        <link rel="stylesheet" th:href="@{./css/contact.css}">
+    </head>
+    <body>
+<!-- Navigation Bar -->
+        <div class="container_full header_bg">
+            <div class="container">
+                <header>
+                    <div id="sticker" class="row">
+                        <div class="logo"><a href="#">
+                            <h2>AZURE<span>Auto Mechanic</span></h2>
+                        </a></div>
+                        <nav>
+                            <ul>
+                                <li><a th:href="@{/home}">Home</a></li>
+                                <li><a th:href="@{/abouht}">About US</a></li>
+                                <li><a th:href="@{/service}">Schedule Services</a></li>
+                                <li><a th:href="@{/contact}">Contact</a></li>
+                                <li><a th:href="@{/login}"><button class="sign">LogIn/Register</button></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Contact -->
+                    <div class=" container_full">
+                        <div class="container" id="cont">
+                          <div class="contactform">
+                            <h1 class="con headers">Contact</h1>
+                            <div class="contact_fonts">
+                                <form action="" method="post" id="form">
+                                    <div class="form">
+                                        <div class="group">
+                                            <input type="text" name="" id="name" required><span class="ctf"></span>
+                                            <label for="">Name</label>
+                                        </div>
+                                        <div class="group">
+                                            <input type="text" name="" id="last name" required><span class="ctf"></span>
+                                            <label for="">Last name</label>
+                                        </div>
+                                        <div class="group">
+                                            <input type="email" name="" id="email" required><span class="ctf"></span>
+                                            <label for="">Email</label>
+                                        </div>
+                                        <div class="group">
+                                            <input type="text" name="" id="message" required><span class="ctf"></span>
+                                            <label for="">Message</label>
+                                        </div>
+                                        <button type="submit" name="button" class="button1">Submit</button>
+                                </form>
+                              </div>
+                      </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="container_full footer_bg">
+            <div class="container">
+                <footer>
+                  <h1> – Thanks for visiting! – </h1>
+                    <p>### College Road, Malibagh, Dhaka-12**, Bangladesh </p>
+                    <p>Phone: +880-********** | Email: azureAM@gmail.com</p>
+                    <p>Copyright &copy; | 2022 AZURE Auto Mechanic</p>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
