@@ -22,9 +22,9 @@
                         <nav>
                             <ul>
                                 <li><a th:href="@{/home}">Home</a></li>
-                                <li><a th:href="@{/about}">About US</a></li>
+                                <li><a th:href="@{/home}">About US</a></li>
                                 <li><a th:href="@{/service}">Schedule Services</a></li>
-                                <li><a th:href="@{/contact}">Contact</a></li>
+                                <li><a th:href="@{/home}">Contact</a></li>
                                 <li th:if="${session.activeUser}"><p th:text="'Welcome '+${session.activeUser}"></p></li>
                                 <li th:unless="${session.activeUser}"><a th:href="@{/login}" ><button class="sign">LogIn/Register</button></a></li>
 
@@ -74,7 +74,8 @@
 
                                 <select th:name="mechanic_id">
                                     <th:block th:each="mechanic : ${mechanicList}">
-                                    <option th:text="${mechanic.name} +' has '+${mechanic.clientsCount}+' free slots'"
+                                    <option th:disabled="${mechanic.clientsCount <= 0}"
+                                            th:text="${mechanic.name} +' has '+${mechanic.clientsCount}+' free slots'"
                                             th:value="${mechanic.id}"></option>
                                     </th:block>
                                   </select>

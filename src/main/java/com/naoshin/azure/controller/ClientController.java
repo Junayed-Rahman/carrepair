@@ -41,10 +41,12 @@ public class ClientController {
     }
 
     @PostMapping("/registersuccess")
-    public String registrationSuccess(@ModelAttribute("client") Client client, Model model){
+    public String registrationSuccess(@ModelAttribute("client") Client client, Model model, HttpServletRequest request){
+        HttpSession httpSession = request.getSession();
         client.setRole("user");
         Client newClient = clientRepository.save(client);
         model.addAttribute("client",newClient);
+        httpSession.setAttribute("activeUser",client.getName());
         return "login";
     }
 

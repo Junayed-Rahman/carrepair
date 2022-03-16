@@ -15,9 +15,10 @@
 
 
         <select th:name="mechanic_id">
-            <option th:text="${mechanic.name} +' was previusly selected'" th:value="${mechanic.id}"></option>
+            <option th:text="${mechanic.name} +' was previusly selected'" th:value="${mechanic.id}" th:disabled="${mechanic.clientsCount <= 0}></option>
             <th:block th:each="mechanic : ${mechanicList}">
-                <option th:text="${mechanic.name} +' has '+${mechanic.clientsCount}+' free slots'"
+                <option th:disabled="${mechanic.clientsCount <= 0}
+                        th:text="${mechanic.name} +' has '+${mechanic.clientsCount}+' free slots'"
                         th:value="${mechanic.id}"></option>
             </th:block>
         </select>
