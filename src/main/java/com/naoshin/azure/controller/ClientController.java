@@ -76,7 +76,9 @@ public class ClientController {
             return "admin";
         }
         else{
-            throw new IllegalStateException();
+            System.out.println("Invalid user!!");
+            httpSession.setAttribute("activeUser",false);
+            return "login";
         }
     }
 
