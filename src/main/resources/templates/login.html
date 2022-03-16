@@ -26,6 +26,17 @@
                         </p>
                     </div>
                 </th:block>
+                
+                <th:block th:unless="${session.activeUser}">
+                    <div class="alert">
+                        <input type="checkbox" id="alert5"/>
+                        <label class="close" title="close" for="alert5">
+                            <i class="icon-remove"></i>
+                        </label>
+                        <p class="inner" th:text="'You are not a valid user!!'">
+                        </p>
+                    </div>
+                </th:block>
 
                 <th:block th:if="${logout}">
                     <div class="alert">
