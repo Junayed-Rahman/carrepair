@@ -55,21 +55,24 @@
                                   <table cellpadding="0" cellspacing="0" >
                                     <tbody>
 
-                                    <th:block th:each="client: ${clientList}">
-                                        <th:block th:each="mechanic: ${mechanicList}">
+                                    <th:block th:each="client,index: ${clientList}">
+
                                       <tr>
                                         <td th:text="${client.name}">AAC</td>
                                         <td th:text="${client.phone}">AUSTRALIAN COMPANY </td>
                                         <td th:text="${client.car.registrationNumber}">$1.38</td>
                                         <td th:text="${client.appointmentDate}">+2.01</td>
-                                        <td th:text="${mechanic.name}">-0.36%</td>
+
+                                        <td th:text="*{mechanicList[__${index.index}__].name}">-0.36%</td>
 <!--                                        <td><div class="table__button-group"><a th:href="@{'/submit/'+${client.id}+'/'+${mechanic.id}}">Edit </a></div></td>-->
-                                          <td><div class="table__button-group"><a th:href="@{/edit/{cid}/{mid}(cid=${client.id},mid=${mechanic.id})}">Edit </a></div></td>
+                                          <td><div class="table__button-group"><a th:href="@{/edit/{cid}/{mid}(cid=${client.id},mid=*{mechanicList[__${index.index}__].id})}">Edit </a></div></td>
 <!--                                          <td><div class="table__button-group"><a th:href="@{'/edit/'+${client.id}+'/'+${mechanic.id}}">Edit </a></div></td>-->
+
                                       </tr>
 
-                                        </th:block>
+
                                     </th:block>
+
 
 
                                     </tbody>
